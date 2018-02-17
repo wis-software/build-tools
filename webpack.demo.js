@@ -1,9 +1,5 @@
 const webpackMerge = require('webpack-merge');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const DirectoryTreePlugin = require('directory-tree-webpack-plugin');
 const { dir } = require('./helpers');
-
-const ENV = 'development';
 
 let playgroundConfig = require('./webpack.playground.js');
 
@@ -36,20 +32,7 @@ module.exports = function() {
     module: {
     },
     plugins: [
-      new DirectoryTreePlugin({
-        dir: './playground/app/components',
-        path: './playground/assets/components/components.json',
-        enhance: (item, options) => {
-          item.path = item.path.replace(/playground\\app\\components\\/, '');
-          return item;
-        }
-      }),
-      new CopyWebpackPlugin([
-        { from: '../playground/app/components', to: 'assets/components' },
-        { from: '../docs', to: 'docs' },
-        { from: '../playground/assets/components/components.json', to: 'assets/components/components.json' }
-      ]),
-    ],
+    ]
 
   })
 };
