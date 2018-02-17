@@ -138,8 +138,6 @@ module.exports = function() {
             '@angular/platform-browser-dynamic',
             '@angular/core',
             '@angular/common',
-            '@angular/forms',
-            '@angular/material',
             'rxjs',
           ]
         },
